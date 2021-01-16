@@ -8,12 +8,14 @@ export class Storage {
             for(let i = 0; i < localStorage.length; i++) {
                 let item = localStorage.getItem(localStorage.key(i));
                 item = JSON.parse(item);
-                console.log(item['name'])
                 itemList.push(item);
             }
             
-            return itemList;
+            itemList.sort((a, b) => {
+                return a.id - b.id;
+            });
 
+            return itemList;
     }
 
     SaveData(data)
